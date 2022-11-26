@@ -8,12 +8,13 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <h1>1</h1>
       <div className="App">
         <Routes>
           <Route path='/' element={<Chat/>} />
           <Route path='/login' element={ <Login /> } />
           <Route path='/register' element={<Register/>} />
+
+          <Route path='*' element={<h1>404 page not found</h1>} />
         </Routes>
       </div>
     </Router>
