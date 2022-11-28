@@ -1,6 +1,8 @@
 import React from 'react'
 import loginImage from '../../assets/images/login.svg'
 
+import './Auth.scss'
+
 const Login = () => {
   return (
     <div id='auth-container'>
