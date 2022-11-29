@@ -1,5 +1,6 @@
 import React from 'react'
 import loginImage from '../../assets/images/login.svg'
+import { Link } from 'react-router-dom'
 
 import './Auth.scss'
 
@@ -26,7 +27,7 @@ const Login = () => {
                         <button>LOGIN</button>
                     </form>
 
-                    <p>Don't have an account? <a href='/register'>Register</a> </p>
+                    <p>Don't have an account? <Link to='/register'>Register</Link> </p>
                 </div>
             </div>
         </div>
