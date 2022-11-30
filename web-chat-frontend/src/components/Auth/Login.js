@@ -3,6 +3,8 @@ import loginImage from '../../assets/images/login.svg'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import AuthService from '../../services/authService'
+
 import './Auth.scss'
 
 const Login = () => {
@@ -12,13 +14,15 @@ const Login = () => {
   const submitForm = (e) => {
     e.preventDefault()
 
-    axios.post(`${process.env.BACKEND_HOST}+':'${process.env.BACKEND_PORT}+'/login'`, {email, password})
+    AuthService.login({email, password})
+    .then(res => console.log(res))
+    /*axios.post(`${process.env.BACKEND_HOST}+':'${process.env.BACKEND_PORT}+'/login'`, {email, password})
     .then(res => {
         console.log("res",res);
     })
     .catch(err=> {
         console.log("err",err);
-    })
+    })*/
     console.log({email, password});
   }
     
