@@ -6,14 +6,14 @@ const initialState = {
     isLoggedIn: false
 }
 
-const authReducer = (state, action) => {
+const authReducer = (state = initialState, action) => {
     const { type, payload } = action
 
     switch(type) {
         case LOGIN: 
             return {
                 ...state,
-                user: payload,
+                user: payload.user,
                 token: payload.token,
                 isLoggedIn: true
             }
