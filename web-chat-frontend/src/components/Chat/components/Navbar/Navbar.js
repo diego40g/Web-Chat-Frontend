@@ -8,8 +8,8 @@ const Navbar = () => {
         <div id="navbar" className="card-shadow">
             <h2>dipaz - Chat</h2>
             <div id="profile-menu">
-                <img src={user.avata} alt="Avatar"/>
-                <p></p>
+                <img src={user.avatar} alt="Avatar"/>
+                <p>{user.firstName} {user.lastName}</p>
             </div>
         </div>
     )
