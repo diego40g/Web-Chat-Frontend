@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import registerImage from '../../assets/images/register.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import { register } from '../../store/actions/auth';
 import './Auth.scss'
@@ -8,6 +8,7 @@ import './Auth.scss'
 const Register = ( {history }) => {
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [firstName, setFirstName]=useState('')
   const [lastName, setLastName]=useState('')
@@ -38,6 +39,7 @@ const Register = ( {history }) => {
   const submitForm = (e) => {
     e.preventDefault()
     dispatch(register({ firstName, lastName, email, gender, password }, history))
+    navigate('/')
   }
 
   return (

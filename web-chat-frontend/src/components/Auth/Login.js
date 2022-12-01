@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import loginImage from '../../assets/images/login.svg'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import AuthService from '../../services/authService'
 
@@ -14,12 +14,14 @@ const Login = ({ history }) => {
   const [password, setPassword] = useState('')
 
   const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const submitForm = (e) => {
     e.preventDefault()
 
     dispatch(login({email, password}, history))
 
+    navigate('/')
     //props.history
 
     /*AuthService.login({email, password})
