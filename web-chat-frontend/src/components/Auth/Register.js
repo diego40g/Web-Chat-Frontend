@@ -1,9 +1,45 @@
-import React from 'react'
+import React, { useState } from 'react'
 import registerImage from '../../assets/images/register.svg'
 import { Link } from 'react-router-dom'
+import { useDispatch } from "react-redux";
+import { register } from '../../store/actions/auth';
 import './Auth.scss'
 
-const Register = () => {
+const Register = ( {history }) => {
+
+  const dispatch = useDispatch()
+
+  const [firstName, setFirstName]=useState('')
+  const [lastName, setLastName]=useState('')
+  const [email, setEmail]=useState('')
+  const [gender, setGender]=useState('male')
+  const [password, setPassword]=useState('')
+  const [rePassword, setRePassword]=useState('')
+
+  const handleFirstName = (e) => {
+    setFirstName(e.target.value)
+  }
+  const handleLastName = (e) => {
+    setLastName(e.target.value)
+  }
+  const handleEmail = (e) => {
+    setEmail(e.target.value)
+  }
+  const handleGender = (e) => {
+    setGender(e.target.value)
+  }
+  const handlePassword = (e) => {
+    setPassword(e.target.value)
+  }
+  const handleRePassword = (e) => {
+    setRePassword(e.target.value)
+  }
+
+  const submitForm = (e) => {
+    e.preventDefault()
+    dispatch(register({ firstName, lastName, email, gender, password }, history))
+  }
+
   return (
     <div id="auth-container">
       <div id='auth-card'>
@@ -14,21 +50,40 @@ const Register = () => {
 
           <div id='form-section'>
             <h2>Create an account</h2>
-            <form>
+            <form onSubmit={submitForm}>
               <div className='input-field mb-1'>
-                <input placeholder='First name' />
+                <input 
+                  onChange={handleFirstName}
+                  value={firstName}
+                  required='required'
+                  type='text'
+                  placeholder='First name' />
               </div>
 
               <div className='input-field mb-1'>
-                <input placeholder='Last name' />
+                <input 
+                  onChange={handleLastName}
+                  value={lastName}
+                  required='required'
+                  type='text'
+                  placeholder='Last name' />
               </div>
 
               <div className='input-field mb-1'>
-                <input placeholder='Email' />
+                <input 
+                  onChange={handleEmail}
+                  value={email}
+                  required='required'
+                  type='email'
+                  placeholder='Email' />
               </div>
 
               <div className='input-field mb-1'>
-                <select>
+                <select
+                  onChange={handleGender}
+                  value={gender}
+                  required='required'
+                >
                   <option value='male'>Male</option>
                   <option value='female'>Female</option>
                   <option value='not'>I prefer not to say</option>
@@ -36,10 +91,20 @@ const Register = () => {
               </div>
 
               <div className='input-field mb-2'>
-                <input placeholder='Password' />
+                <input 
+                  onChange={handlePassword}
+                  value={password}
+                  required='required'
+                  type='password'
+                  placeholder='Password' />
               </div>
               <div className='input-field mb-2'>
-                <input placeholder='Repeat password' />
+                <input 
+                  onChange={handleRePassword}
+                  value={rePassword}
+                  required='required'
+                  type='password'
+                  placeholder='Repeat password' />
               </div>
 
               <button>REGISTER</button>
