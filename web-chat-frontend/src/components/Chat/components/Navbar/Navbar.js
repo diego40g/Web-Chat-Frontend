@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './Navbar.scss'
 
 const Navbar = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
             <div id="profile-menu">
                 <img src={user.avatar} alt="Avatar"/>
                 <p>{user.firstName} {user.lastName}</p>
+                <FontAwesomeIcon icon='caret-down' className="fa-icon"/>
             </div>
         </div>
     )
