@@ -14,6 +14,7 @@ function App() {
           <Route element={ <ProtectedRoute/> }>
             <Route path='/' element={ <Chat /> } />
           </Route> 
+          <Route path='/chat' element={ <Chat /> } />
           <Route path='/login' element={ <Login /> } />
           <Route path='/register' element={<Register/>} />
 

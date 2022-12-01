@@ -21,7 +21,7 @@ const Login = ({ history }) => {
 
     dispatch(login({email, password}, history))
 
-    navigate('/')
+    navigate('/chat')
     //props.history
 
     /*AuthService.login({email, password})
