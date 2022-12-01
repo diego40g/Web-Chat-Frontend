@@ -8,7 +8,7 @@ const Navbar = () => {
         <div id="navbar" className="card-shadow">
             <h2>dipaz - Chat</h2>
             <div id="profile-menu">
-                <img src="" alt="Avatar"/>
+                <img src={user.avata} alt="Avatar"/>
                 <p></p>
             </div>
         </div>

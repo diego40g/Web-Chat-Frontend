@@ -39,7 +39,7 @@ const Register = ( {history }) => {
   const submitForm = (e) => {
     e.preventDefault()
     dispatch(register({ firstName, lastName, email, gender, password }, history))
-    navigate('/chat')
+    navigate('/login')
   }
 
   return (
