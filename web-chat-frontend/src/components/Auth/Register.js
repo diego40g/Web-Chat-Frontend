@@ -38,8 +38,7 @@ const Register = ( {history }) => {
 
   const submitForm = (e) => {
     e.preventDefault()
-    dispatch(register({ firstName, lastName, email, gender, password }, history))
-    navigate('/login')
+    dispatch(register({ firstName, lastName, email, gender, password }, navigate))
   }
 
   return (

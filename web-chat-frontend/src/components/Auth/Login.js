@@ -19,9 +19,8 @@ const Login = ({ history }) => {
   const submitForm = (e) => {
     e.preventDefault()
 
-    dispatch(login({email, password}, history))
+    dispatch(login({email, password}, navigate))
 
-    navigate('/chat')
     //props.history
 
     /*AuthService.login({email, password})
