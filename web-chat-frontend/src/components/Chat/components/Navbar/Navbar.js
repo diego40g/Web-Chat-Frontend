@@ -21,7 +21,7 @@ const Navbar = () => {
                     showProfileOptions &&
                     <div id="profile-options">
                         <p>Update profile</p>
-                        <p onClick={ () => dispatch(logout) }>Logout</p>
+                        <p onClick={ () => dispatch(logout()) }>Logout</p>
                     </div>
                 }
             </div>
