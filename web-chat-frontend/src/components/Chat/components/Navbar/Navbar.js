@@ -8,6 +8,7 @@ import Modal from "../../../Modal/Modal";
 const Navbar = () => {
     const user = useSelector(state => state.authReducer.user)
     const [showProfileOptions, setShowProfileOptions]=useState('')
+    const [showProfileModal, setShowProfileModal]=useState('')
     const dispatch = useDispatch()
 
     return(
@@ -21,13 +22,14 @@ const Navbar = () => {
                 {
                     showProfileOptions &&
                     <div id="profile-options">
-                        <p>Update profile</p>
+                        <p onClick={() => setShowProfileModal(true)}>Update profile</p>
                         <p onClick={ () => dispatch(logout()) }>Logout</p>
                     </div>
                 }
 
                 {
-                    <Modal>
+                    showProfileModal &&
+                    <Modal click={() => setShowProfileModal(false)}>
                         <Fragment key='header'>
                             Modal Header
                         </Fragment>
