@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { logout } from "../../../../store/actions/auth";
 import './Navbar.scss'
+import Modal from "../../../Modal/Modal";
 
 const Navbar = () => {
     const user = useSelector(state => state.authReducer.user)
@@ -23,6 +24,22 @@ const Navbar = () => {
                         <p>Update profile</p>
                         <p onClick={ () => dispatch(logout()) }>Logout</p>
                     </div>
+                }
+
+                {
+                    <Modal>
+                        <Fragment key='header'>
+                            Modal Header
+                        </Fragment>
+
+                        <Fragment key='body'>
+                            Modal Body
+                        </Fragment>
+                        
+                        <Fragment key='footer'>
+                            Modal Footer
+                        </Fragment>
+                    </Modal>
                 }
             </div>
         </div>
