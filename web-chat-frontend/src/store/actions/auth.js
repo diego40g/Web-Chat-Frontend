@@ -34,5 +34,6 @@ export const updateProfile = (params) => dispatch => {
         dispatch({ type: UPDATE_PROFILE, payload: data })
     })
     .catch(err => {
+        throw err
     })
 }
