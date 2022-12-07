@@ -27,3 +27,12 @@ export const logout = () => dispatch => {
     AuthService.logout()
     dispatch({ type: LOGOUT })
 }
+
+export const updateProfile = (params) => dispatch => {
+    return AuthService.register(params)
+    .then(data => {
+        dispatch({ type: UPDATE_PROFILE, payload: data })
+    })
+    .catch(err => {
+    })
+}

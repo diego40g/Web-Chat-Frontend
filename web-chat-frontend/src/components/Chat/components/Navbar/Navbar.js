@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { logout } from "../../../../store/actions/auth";
 import './Navbar.scss'
 import Modal from "../../../Modal/Modal";
+import { updateProfile } from "../../../../store/actions/auth";
 
 const Navbar = () => {
     const user = useSelector(state => state.authReducer.user)
@@ -24,13 +25,16 @@ const Navbar = () => {
 
         const form = { firstName, lastName, email, gender, password, avatar}
 
+        if(password.length > 0) form.password=password
+
         const formData = new FormData()
 
         for(const key in form){
             formData.append(key, form[key])
         }
 
-        // dispatch
+        dispatch(updateProfile(formData))
+        .then(() => setShowProfileModal(false))
         
     }
 
@@ -145,7 +149,7 @@ const Navbar = () => {
                         </Fragment>
                         
                         <Fragment key='footer'>
-                            <button className="btn-success">UPDATE</button>
+                            <button className="btn-success" onClick={submitForm}>UPDATE</button>
                         </Fragment>
                     </Modal>
                 }
