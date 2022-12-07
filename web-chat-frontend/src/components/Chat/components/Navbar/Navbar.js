@@ -23,7 +23,7 @@ const Navbar = () => {
     const submitForm = (e) => {
         e.preventDefault()
 
-        const form = { firstName, lastName, email, gender, password, avatar}
+        const form = { firstName, lastName, email, gender, avatar}
 
         if(password.length > 0) form.password=password
 
