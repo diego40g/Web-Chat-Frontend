@@ -29,7 +29,7 @@ export const logout = () => dispatch => {
 }
 
 export const updateProfile = (params) => dispatch => {
-    return AuthService.register(params)
+    return AuthService.updateProfile(params)
     .then(data => {
         dispatch({ type: UPDATE_PROFILE, payload: data })
     })
