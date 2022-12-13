@@ -5,6 +5,10 @@ import Friend from '../Friend/Friend'
 import './FriendList.scss'
 const FriendList = () => {
   const chats = useSelector(state => state.chatReducer.chats)
+  const openChat = (chat) => {
+    //
+
+  }
 
   return (
     <div id='friends'>
@@ -18,10 +22,10 @@ const FriendList = () => {
         <div id='friends-box'>
             {
                 chats.length > 0
-                ? chats.map(chat => {
-                    return <Friend chat= { chat } hey={chat.id}/>
-                })
-                : <p id='no-chat'>No friends added</p>
+                    ? chats.map(chat => {
+                        return <Friend click={() => openChat(chat)} chat= { chat } key={chat.id}/>
+                    })
+                    : <p id='no-chat'>No friends added</p>
             }
         </div>
     </div>
