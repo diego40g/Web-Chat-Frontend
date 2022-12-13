@@ -9,6 +9,7 @@ const chatReducer = (state = initialState, action)=>{
     const {type, payload} = action
     switch (type) {
         case FETCH_CHATS:
+            console.log(payload);
             return {
                 ...state,
                 chats: payload
